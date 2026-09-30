@@ -1,0 +1,18 @@
+# Dépendances (Composer)
+/vendor/
+
+# Fichiers de configuration sensibles
+.env
+.env.local
+
+# Configurations IDE / Éditeurs
+.idea/
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Logs et fichiers temporaires
+*.log
+/cache/
+/tmp/
