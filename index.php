@@ -1,5 +1,5 @@
 <?php
-require_once '_assets/includes/autoloader.php';
+require_once '_assets/includes/exceptions/autoloader.php';
 
 try {
     // Vérifie la présence du paramètre "action" dans l'URL
@@ -17,6 +17,18 @@ try {
                 // Futur appel au contrôleur d'inscription
                 // (new \Blog\Controllers\Auth\Register())->execute();
                 echo "Page d'inscription (à implémenter)";
+                break;
+
+            case 'plan':
+                (new \Blog\Controllers\Plan\Plan())->execute();
+                break;
+
+            case 'mdp-oublie':
+                echo "Mot de passe oublié (à implémenter)";
+                break;
+
+            case 'mentions-legales':
+                echo "Mentions légales (à implémenter)";
                 break;
 
             default:
