@@ -27,8 +27,8 @@ try {
                 echo "Mot de passe oublié (à implémenter)";
                 break;
 
-            case 'mentions-legales':
-                echo "Mentions légales (à implémenter)";
+            case 'legalnotice':
+                (new \Blog\Controllers\Legalnotice\Legalnotice())->execute();
                 break;
 
             default:

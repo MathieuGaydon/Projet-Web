@@ -13,18 +13,20 @@ class Plan {
         $mdp = 'Mot de passe oublié';
         $mdpaddr = 'index.php?action=mdp-oublie';
         $ml = 'Mentions légales';
-        $mladdr = 'inserer_adresse_page_correspondante';
+        $mladdr = 'index.php?action=legalnotice';
         $h = 'Menu principal';
         $haddr = 'index.php';
 
         ob_start();
         ?>
         <section class="hero">
-            <a href="<?php echo $haddr;?>"><?php echo $h;?></a>
-            <a href="<?php echo $aaddr;?>"><?php echo $a;?></a>
-            <a href="<?php echo $iaddr;?>"><?php echo $i;?></a>
-            <a href="<?php echo $mdpaddr;?>"><?php echo $mdp;?></a>
-            <a href="<?php echo $mladdr;?>"><?php echo $ml;?></a>
+            <ul>
+                <li><a href="<?php echo $haddr;?>"><?php echo $h;?></a></li>
+                <li><a href="<?php echo $aaddr;?>"><?php echo $a;?></a></li>
+                <li><a href="<?php echo $iaddr;?>"><?php echo $i;?></a></li>
+                <li><a href="<?php echo $mdpaddr;?>"><?php echo $mdp;?></a></li>
+                <li><a href="<?php echo $mladdr;?>"><?php echo $ml;?></a></li>
+            </ul>
         </section>
         <?php
         $content = ob_get_clean();
