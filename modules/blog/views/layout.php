@@ -23,6 +23,7 @@ class Layout {
                 <a href="index.php">Accueil</a>
                 <a href="index.php?action=inscription">Inscription</a>
                 <a href="index.php?action=connexion">Connexion</a>
+                <a href="index.php?action=plan">Plan du site</a>
             </nav>
         </header>
 
