@@ -9,8 +9,7 @@ try {
         switch ($action) {
             case 'connexion':
                 // Futur appel au contrôleur de connexion
-                // (new \Blog\Controllers\Auth\Login())->execute();
-                echo "Page de connexion (à implémenter)";
+                (new \Blog\Controllers\Auth\Login())->execute();
                 break;
 
             case 'inscription':
