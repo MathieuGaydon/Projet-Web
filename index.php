@@ -1,5 +1,5 @@
 <?php
-require_once '_assets/includes/autoloader.php';
+require_once 'home/pfas-explorer/www/_assets/includes/autoloader.php';
 
 try {
     // Vérifie la présence du paramètre "action" dans l'URL
