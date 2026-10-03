@@ -6,9 +6,9 @@ on:
 
 jobs:
   deploy:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
-      - name : Configurer SSH
+      - name: Configurer SSH
         run : |
           mkdir -p ~/.SSH
           echo "${{ secrets.SSH_PRIVATE_KEY}}" > ~/.ssh/id_ed25519
