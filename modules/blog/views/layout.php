@@ -1,5 +1,5 @@
 <?php
-namespace Blog\Views;
+namespace blog\views;
 
 class Layout {
     public function __construct(
