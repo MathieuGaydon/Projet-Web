@@ -1,5 +1,5 @@
 <?php
-namespace Blog\Views;
+namespace blog\views;
 
 class Homepage {
     public function show(): void {

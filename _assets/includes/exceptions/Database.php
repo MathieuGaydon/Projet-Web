@@ -1,5 +1,5 @@
 <?php
-namespace Includes\Database;
+namespace includes\exceptions\database;
 
 use PDO;
 use PDOException;

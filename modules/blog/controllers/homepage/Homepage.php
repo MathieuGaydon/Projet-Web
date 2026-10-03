@@ -1,7 +1,7 @@
 <?php
-namespace Blog\Controllers\Homepage;
+namespace blog\controllers\homepage;
 
-use Blog\Views\Homepage as HomepageView;
+use blog\views\Homepage as HomepageView;
 
 class Homepage {
     public function execute(): void {
