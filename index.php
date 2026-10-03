@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/_assets/includes/autoloader.php';
+require_once __DIR__ . '/_assets/includes/exceptions/autoloader.php';
 
 try {
     // Vérifie la présence du paramètre "action" dans l'URL
