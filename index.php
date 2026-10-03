@@ -1,5 +1,5 @@
 <?php
-require_once 'home/www/_assets/includes/autoloader.php';
+require_once '/home/www/_assets/includes/autoloader.php';
 
 try {
     // Vérifie la présence du paramètre "action" dans l'URL
