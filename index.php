@@ -25,10 +25,10 @@ try {
 
     } else {
         // Redirection vers la page d'accueil par défaut
-        (new \Blog\Controllers\Homepage\Homepage())->execute();
+        (new \blog\controllers\homepage\Homepage())->execute();
     }
 } catch (Exception $e) {
     $title = "Erreur";
     $content = "<section class='error'><h1>Erreur</h1><p>" . htmlspecialchars($e->getMessage()) . "</p></section>";
-    (new \Blog\Views\Layout($title, $content))->show();
+    (new \blog\views\Layout($title, $content))->show();
 }
