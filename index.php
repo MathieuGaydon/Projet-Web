@@ -18,6 +18,11 @@ try {
                 // (new \Blog\Controllers\Auth\Register())->execute();
                 echo "Page d'inscription (à implémenter)";
                 break;
+                
+            case 'mdp-oublie':
+                (new \blog\controllers\mdpoublie\MdpOublie())->execute();
+                break;
+
 
             default:
                 throw new Exception("La page que vous recherchez n'existe pas.");
