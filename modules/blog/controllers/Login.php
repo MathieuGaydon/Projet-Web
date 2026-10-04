@@ -52,6 +52,6 @@ public function execute(): void {
                 exit();
             }
         }
+        (new LoginView())->show($errors, $email, $_SESSION['csrf_token']);
     }
-    (new LoginView())->show($errors, $email, $_SESSION['csrf_token']);
 }
