@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once __DIR__ . '/_assets/includes/exceptions/Autoloader.php';
 
 try {
@@ -7,11 +8,21 @@ try {
         $action = $_GET['action'];
 
         switch ($action) {
+            case 'homepage':
+                (new \blog\controllers\homepage\Homepage())->execute();
+                break;
+
             case 'connexion':
                 // Futur appel au contrôleur de connexion
                 // (new \Blog\Controllers\Auth\Login())->execute();
                 echo "Page de connexion (à implémenter)";
                 break;
+
+            case 'deconnexion':
+                $_SESSION=[];
+                session_destroy();
+                header('Location: index.php?action=homepage');
+                exit();
 
             case 'inscription':
                 // Futur appel au contrôleur d'inscription
