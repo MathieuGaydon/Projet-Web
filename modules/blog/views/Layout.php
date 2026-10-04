@@ -9,7 +9,9 @@ class Layout {
         private string $sm_description,
         private string $sm_image,
         private string $sm_url,
+        private string $info_button_1,
         private string $button_1,
+        private string $info_button_2,
         private string $button_2,
         private string $content,
         private string $button_3
@@ -25,6 +27,7 @@ class Layout {
                 <meta name="description" content=<?=($this->description)?>>
                 <title><?= htmlspecialchars($this->title) ?></title>
                 <link rel="stylesheet" href="..\..\_assets\styles\style.css">
+                <link rel="stylesheet" href="..\..\_assets\styles\register.css">
                 <!--meta pour l'affichage réseaux sociaux-->
                 <meta property="og:title" content="<?= htmlspecialchars($this->sm_title ?? '')?>">
                 <meta property="og:description" content="<?= htmlspecialchars($this->sm_description ?? '')?>">
@@ -42,8 +45,8 @@ class Layout {
                     <!--Menu-->
                     <div id="buttonnav">
                             <?php if (!isset($_SESSION['user'])) : ?>
-                                <a href="index.php?action=inscription" class="inside"><?=($this->button_1)?></a>
-                                <a href="index.php?action=connexion" class="inside"><?=($this->button_2)?></a>
+                                <a href="index.php?action=<?= htmlspecialchars($this->info_button_1 ?? '')?>" class="inside"><?=($this->button_1)?></a>
+                                <a href="index.php?action=<?= htmlspecialchars($this->info_button_2 ?? '')?>" class="inside"><?=($this->button_2)?></a>
                             <?php else : ?>
                                 <a href="index.php?action=deconnexion" class="inside"><?=($this->button_3)?></a>
                             <?php endif; ?>
