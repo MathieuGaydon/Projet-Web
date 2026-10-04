@@ -9,7 +9,7 @@ try {
 
         switch ($action) {
             case 'homepage':
-                (new \blog\controllers\homepage\Homepage())->execute();
+                (new \blog\controllers\Homepage())->execute();
                 break;
 
             case 'connexion':
@@ -25,9 +25,8 @@ try {
                 exit();
 
             case 'inscription':
-                // Futur appel au contrôleur d'inscription
-                // (new \Blog\Controllers\Auth\Register())->execute();
-                echo "Page d'inscription (à implémenter)";
+                $pdo = \includes\exceptions\Database::getInstance();
+                (new \blog\controllers\Register($pdo))->execute();
                 break;
 
             default:
@@ -36,10 +35,19 @@ try {
 
     } else {
         // Redirection vers la page d'accueil par défaut
-        (new \blog\controllers\homepage\Homepage())->execute();
+        (new \blog\controllers\Homepage())->execute();
     }
 } catch (Exception $e) {
     $title = "Erreur";
     $content = "<section class='error'><h1>Erreur</h1><p>" . htmlspecialchars($e->getMessage()) . "</p></section>";
-    (new \blog\views\Layout($title, $content))->show();
+    (new \blog\views\Layout(title: 'Erreur',
+        description: '',
+        sm_title: '',
+        sm_description: '',
+        sm_image: '',
+        sm_url: '',
+        button_1: 'S\'inscrire',
+        button_2: 'Connexion',
+        content: $content,
+        button_3: 'Déconnexion'))->show();
 }

@@ -68,7 +68,18 @@ class Register {
         require __DIR__ . '/../views/register.php';
         $content = ob_get_clean();
 
-        $layout = new Layout('Inscription', $content);
+        $layout = new Layout(
+            title: 'Inscription',
+            description: 'Créer un compte',
+            sm_title: '',
+            sm_description: '',
+            sm_image: '',
+            sm_url: '',
+            button_1: '',
+            button_2: '',
+            content: $content,
+            button_3: ''
+        );
         $layout->show();
     }
 }
