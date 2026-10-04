@@ -1,6 +1,7 @@
 <?php
 namespace blog\controllers;
 
+use blog\views\Register as RegisterView;
 use blog\views\Layout;
 use blog\models\User;
 use PDO;
@@ -47,11 +48,17 @@ class Register {
             }
             // (à ajouter) contrainte sur le numéro de téléphone
             // (à ajouter) contrainte de sécurité sur le mot de passe
+            
+            $userModel = new User($this->pdo);
+
+            //On vérifie si l'email existe ou non
+            if (empty($errors) && $userModel->emailExists($email)) {
+                $errors[] = 'Cette adresse-mail est déjà utilisée.';
+            }
 
             // gestion des données
             if (empty($errors)) {
                 // on enregistre dans la BDD
-                $userModel = new User($this->pdo);
                 $saved = $userModel->create($last_name, $first_name, $email, $password, $phone_number);
 
                 if ($saved) {
@@ -65,23 +72,7 @@ class Register {
             }
         }
 
-        ob_start();
-        require __DIR__ . '/../views/register.php';
-        $content = ob_get_clean();
-
-        $layout = new Layout(
-            title: 'Inscription',
-            description: 'Créer un compte',
-            sm_title: '',
-            sm_description: '',
-            sm_image: '',
-            sm_url: '',
-            button_1: 'S\'inscrire',
-            button_2: 'Se connecter',
-            content: $content,
-            button_3: ''
-        );
-        $layout->show();
+        (new RegisterView())->show($errors);
     }
 
     private function sendConformationMail(string $email, string $first_name, string $last_name): bool {
