@@ -1,16 +1,17 @@
 * {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: 'Inter', Arial, sans-serif;
     color: #FFEFB3;
     line-height: 1.6;
-    background-color: #013E37;
+    background-color: #013832;
+    margin: 0;
 }
 
 /* --- Header & Navigation --- */
@@ -80,9 +81,13 @@ h2 {
     line-height: 1.4;
 }
 
+h4 {
+    font-size: 22px;
+}
+
 /* --- Blocs Contenu --- */
 .home {
-    background: #013E37;
+    background-color: #013832;
     padding: 32px 20px;
     display: flex;
     flex-direction: column;
@@ -90,6 +95,7 @@ h2 {
     gap: 24px;
     text-align: center;
     color: #FFEFB3;
+    flex: 1;
 }
 
 .home p {
@@ -108,6 +114,12 @@ footer {
     padding: 40px 16px;
     background-color: #013E37;
     text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+}
+
+.footer-description p {
+    font-family: 'Quicksand', sans-serif;
 }
 
 .footer-description, 
@@ -144,6 +156,17 @@ footer {
     font-weight: bold;
 }
 
+/* --- Erreurs --- */
+.error {
+    padding: 32px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-align: center;
+    color: #e40000;
+}
+
 /* --- Version Ordinateur (Desktop) --- */
 @media (min-width: 1024px) {
     .header {
@@ -169,7 +192,7 @@ footer {
 
     .inside:hover {
         background: #013E37;
-        color: #fff;
+        color: #FFEFB3;
     }
 
     .inside:active {
@@ -183,10 +206,6 @@ footer {
 
     h2 {
         font-size: 30px;
-    }
-
-    h3 {
-        font-size: 20px;
     }
 
     .home p {
