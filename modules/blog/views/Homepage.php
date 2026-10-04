@@ -7,9 +7,11 @@ class Homepage {
         $description = "PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations aux PFAS et de gérer des espaces de travail et des données environnementales.";
         $sm_title = "PFAS-Explorer - Accueil";
         $sm_description = "PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations aux PFAS et de gérer des espaces de travail et des données environnementales.";
-        $sm_image = "https://projetwebtestperso.alwaysdata.net/Logo_PFAS.webp";
+        $sm_image = "https://projetwebtestperso.alwaysdata.net/_assets/images/Logo_PFAS.webp";
         $sm_url = "https://projetwebtestperso.alwaysdata.net/";
+        $info_button_1 = "inscription";
         $button_1 = "S'inscrire";
+        $info_button_2 = "connexion";
         $button_2 = "Se Connecter";
         $button_3 = "Se Déconnecter";
 
@@ -22,6 +24,6 @@ class Homepage {
         <?php
         $content = ob_get_clean();
 
-        (new Layout($title, $description, $sm_title, $sm_description, $sm_image, $sm_url, $button_1, $button_2, $content, $button_3))->show();
+        (new Layout($title, $description, $sm_title, $sm_description, $sm_image, $sm_url, $info_button_1, $button_1, $info_button_2, $button_2, $content, $button_3))->show();
     }
 }
