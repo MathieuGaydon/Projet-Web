@@ -35,7 +35,7 @@ class User {
     
     // On vérifie si l'email existe ou non
     public function emailExists(string $email): bool {
-        $stmt = $this->db->prepare(SELECT COUNT(*) FROM Users WHERE email = :email);
+        $stmt = $this->db->prepare('SELECT COUNT(*) FROM Users WHERE email = :email');
         $stmt->execute(['email' => $email]);
         return (bool) $stmt->fetchColumn(); // récupère la valeur de la requête SQL et renvoie true ou false en fonction
     }
