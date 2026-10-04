@@ -29,6 +29,7 @@ class Layout {
                 <link rel="stylesheet" href="../../_assets/styles/style.css">
                 <link rel="stylesheet" href="../../_assets/styles/register.css">
                 <link rel="stylesheet" href="../../_assets/styles/legalnotice.css">
+                <link rel="stylesheet" href="../../_assets/styles/sitemap.css">
                 <!--meta pour l'affichage réseaux sociaux-->
                 <meta property="og:title" content="<?= htmlspecialchars($this->sm_title ?? '')?>">
                 <meta property="og:description" content="<?= htmlspecialchars($this->sm_description ?? '')?>">
@@ -65,7 +66,7 @@ class Layout {
                     </div>
                     <div class="footer-hyperlinks">
                         <a href="index.php?action=legalnotice" class="footer-link">Mentions Légales</a>
-                        <a href="?.php" class="footer-link">Plan du site</a>
+                        <a href="index.php?action=sitemap" class="footer-link">Plan du site</a>
                         <p>© 2026 - Tous droits réservés</p>
                     </div>
                     <a href="#top" class="footer-link return-top">↑</a>

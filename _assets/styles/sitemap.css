@@ -1,0 +1,18 @@
+.sitemap ul li::marker {
+    font-size: 40px;
+}
+
+.sitemap li {
+    font-size: 25px;
+    margin-left: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.sitemap a {
+    color: #FFEFB3;
+    text-decoration: none;
+}
+
+.sitemap-link:hover {
+    text-decoration: underline;
+}

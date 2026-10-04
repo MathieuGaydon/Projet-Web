@@ -8,7 +8,7 @@ class LegalNotice{
         $sm_title = "PFAS-Explorer - Mentions Légales";
         $sm_description = "Mentions Légales du site PFAS-Explorer.";
         $sm_image = "https://projetwebtestperso.alwaysdata.net/_assets/images/Logo_PFAS.webp";
-        $sm_url = "https://projetwebtestperso.alwaysdata.net/";
+        $sm_url = "https://projetwebtestperso.alwaysdata.net/index.php?action=legalnotice";
         $info_button_1 = "homepage";
         $button_1 = "Accueil";
         $info_button_2 = "inscription";
