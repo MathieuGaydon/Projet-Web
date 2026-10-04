@@ -30,6 +30,10 @@ try {
                 (new \blog\controllers\Register($pdo))->execute();
                 break;
 
+            case 'legalnotice':
+                (new \blog\controllers\LegalNotice())->execute();
+                break;
+
             default:
                 throw new Exception("La page que vous recherchez n'existe pas.");
         }
@@ -41,13 +45,16 @@ try {
 } catch (Exception $e) {
     $title = "Erreur";
     $content = "<section class='error'><h1>Erreur</h1><p>" . htmlspecialchars($e->getMessage()) . "</p></section>";
-    (new \blog\views\Layout(title: 'Erreur',
+    (new \blog\views\Layout(
+        title: 'Erreur',
         description: '',
         sm_title: '',
         sm_description: '',
         sm_image: '',
         sm_url: '',
+        info_button_1: 'inscription',
         button_1: 'S\'inscrire',
+        info_button_2: 'connexion',
         button_2: 'Connexion',
         content: $content,
         button_3: 'Déconnexion'))->show();

@@ -1,0 +1,17 @@
+.legal_notice {
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-family: 'Noto Serif', serif;
+    margin-left: 15px;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.legal_notice p, 
+.legal_notice li {
+    font-size: 18px;
+    margin-left: 15px;
+    font-family: 'Quicksand', sans-serif;
+}

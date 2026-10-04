@@ -26,8 +26,9 @@ class Layout {
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <meta name="description" content=<?=($this->description)?>>
                 <title><?= htmlspecialchars($this->title) ?></title>
-                <link rel="stylesheet" href="..\..\_assets\styles\style.css">
-                <link rel="stylesheet" href="..\..\_assets\styles\register.css">
+                <link rel="stylesheet" href="../../_assets/styles/style.css">
+                <link rel="stylesheet" href="../../_assets/styles/register.css">
+                <link rel="stylesheet" href="../../_assets/styles/legalnotice.css">
                 <!--meta pour l'affichage réseaux sociaux-->
                 <meta property="og:title" content="<?= htmlspecialchars($this->sm_title ?? '')?>">
                 <meta property="og:description" content="<?= htmlspecialchars($this->sm_description ?? '')?>">
@@ -59,11 +60,11 @@ class Layout {
 
                 <footer>
                     <div class="footer-description">
-                        <p>PFAS-EXPLORER</p>
+                        <h4>PFAS-EXPLORER</h4>
                         <p>PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations aux PFAS et de gérer des espaces de travail et des données environnementales.</p>
                     </div>
                     <div class="footer-hyperlinks">
-                        <a href="legal_mentions.php" class="footer-link">Mentions Légales</a>
+                        <a href="index.php?action=legalnotice" class="footer-link">Mentions Légales</a>
                         <a href="?.php" class="footer-link">Plan du site</a>
                         <p>© 2026 - Tous droits réservés</p>
                     </div>
