@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once __DIR__ . '/_assets/includes/exceptions/Autoloader.php';
-require_once __DIR__ . '/_assets/config/env.php'
+require_once __DIR__ . '/_assets/config/env.php';
 
 try {
     // Vérifie la présence du paramètre "action" dans l'URL
