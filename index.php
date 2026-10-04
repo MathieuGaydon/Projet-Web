@@ -23,6 +23,14 @@ try {
                 (new \blog\controllers\mdpoublie\MdpOublie())->execute();
                 break;
 
+            case 'reset':
+                (new \blog\controllers\mdpoublie\Reset())->execute();
+                break;
+
+            case 'reset-psw':
+                (new \blog\controllers\mdpoublie\ResetPsw()) -> execute();
+                break;
+
 
             default:
                 throw new Exception("La page que vous recherchez n'existe pas.");
