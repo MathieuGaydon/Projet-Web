@@ -53,7 +53,7 @@ class Register {
 
             //On vérifie si l'email existe ou non
             if (empty($errors) && $userModel->emailExists($email)) {
-                $errors[] = 'Cette adresse-mail est déjà utilisée.'
+                $errors[] = 'Cette adresse-mail est déjà utilisée.';
             }
 
             // gestion des données
