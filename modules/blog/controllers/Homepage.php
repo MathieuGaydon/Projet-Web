@@ -1,5 +1,5 @@
 <?php
-namespace blog\controllers\homepage;
+namespace blog\controllers;
 
 use blog\views\Homepage as HomepageView;
 

@@ -1,5 +1,6 @@
 <?php
-namespace includes\exceptions\database;
+
+namespace includes\exceptions;
 
 use PDO;
 use PDOException;
@@ -10,10 +11,10 @@ class Database {
     public static function getInstance(): PDO {
         if (self::$instance === null) {
             try {
-                $host = 'mysql-afu.alwaysdata.net';
-                $dbname = 'afu_database';
-                $user = 'afu';
-                $password = '?';
+                $host = 'mysql-pfas-explorer.alwaysdata.net';
+                $dbname = 'pfas-explorer_database';
+                $user = 'pfas-explorer';
+                $password = 'NevotVousEtesUnGoat2.40';
 
                 self::$instance = new PDO(
                     "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
