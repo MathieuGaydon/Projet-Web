@@ -25,7 +25,8 @@ class Register{
                     </ul>
                 </div>
             <?php endif; ?>
-            
+            <div class="register">
+            <h2>Inscription</h2>
             <form action="" method="post">
                 <div>
                     <label for="last_name">Nom :</label>
@@ -59,6 +60,7 @@ class Register{
                     <input type="submit" name="action" value="S'inscrire">
                 </div>
             </form>
+            </div>
             <!-- en utilisant 'required', les conditions -->
             <?php
             $content = ob_get_clean();
