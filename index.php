@@ -13,12 +13,6 @@ try {
                 (new \blog\controllers\Homepage())->execute();
                 break;
 
-            case 'connexion':
-                // Futur appel au contrôleur de connexion
-                // (new \Blog\Controllers\Auth\Login())->execute();
-                echo "Page de connexion (à implémenter)";
-                break;
-
             case 'deconnexion':
                 $_SESSION=[];
                 session_destroy();
@@ -30,12 +24,9 @@ try {
                 (new \blog\controllers\Register($pdo))->execute();
                 break;
 
-            case 'legalnotice':
-                (new \blog\controllers\LegalNotice())->execute();
-                break;
-
-            case 'sitemap':
-                (new \blog\controllers\SiteMap())->execute();
+            case 'connexion':
+                $pdo = \includes\exceptions\Database::getInstance();
+                (new \blog\controllers\Login($pdo))->execute();
                 break;
 
             default:
@@ -47,7 +38,6 @@ try {
         (new \blog\controllers\Homepage())->execute();
     }
 } catch (Exception $e) {
-    $title = "Erreur";
     $content = "<section class='error'><h1>Erreur</h1><p>" . htmlspecialchars($e->getMessage()) . "</p></section>";
     (new \blog\views\Layout(
         title: 'Erreur',
@@ -61,5 +51,6 @@ try {
         info_button_2: 'connexion',
         button_2: 'Connexion',
         content: $content,
-        button_3: 'Déconnexion'))->show();
+        button_3: 'Déconnexion'
+    ))->show();
 }

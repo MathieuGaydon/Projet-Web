@@ -19,7 +19,7 @@ class User {
         ): bool {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = 'INSERT INTO Users (last_name, first_name, email, phone_number, password)
+        $sql = 'INSERT INTO User (last_name, first_name, email, phone_number, password)
         VALUES (:last_name, :first_name, :email, :phone_number, :password)';
 
         $stmt = $this->db->prepare($sql);
@@ -32,11 +32,19 @@ class User {
             'password' => $hashed_password
         ]);
     }
-    
+
     // On vérifie si l'email existe ou non
     public function emailExists(string $email): bool {
-        $stmt = $this->db->prepare('SELECT COUNT(*) FROM Users WHERE email = :email');
+        $stmt = $this->db->prepare('SELECT COUNT(*) FROM User WHERE email = :email');
         $stmt->execute(['email' => $email]);
         return (bool) $stmt->fetchColumn(); // récupère la valeur de la requête SQL et renvoie true ou false en fonction
+    }
+    public function findByEmail(string $email): ?object {
+        $stmt = $this->db->prepare(
+            'SELECT id_user, first_name, last_name, email, password FROM User WHERE email = :email LIMIT 1'
+        );
+        $stmt-> execute(['email' => $email]);
+        $user = $stmt->fetch();
+        return $user ?: null;
     }
 }
