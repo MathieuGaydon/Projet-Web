@@ -48,7 +48,6 @@ class Register {
             }
             // (à ajouter) contrainte sur le numéro de téléphone
             // (à ajouter) contrainte de sécurité sur le mot de passe
-            
             $userModel = new User($this->pdo);
 
             //On vérifie si l'email existe ou non
