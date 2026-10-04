@@ -11,10 +11,10 @@ class Database {
     public static function getInstance(): PDO {
         if (self::$instance === null) {
             try {
-                $host = 'mysql-pfas-explorer.alwaysdata.net';
-                $dbname = 'pfas-explorer_database';
-                $user = 'pfas-explorer';
-                $password = 'NevotVousEtesUnGoat2.40';
+                $host = $_ENV['DB_HOST'];
+                $dbname = $_ENV['DB_NAME'];
+                $user = $_ENV['DB_USER'];
+                $password = $_ENV['DB_PASSWORD'];
 
                 self::$instance = new PDO(
                     "mysql:host=$host;dbname=$dbname;charset=utf8mb4",
