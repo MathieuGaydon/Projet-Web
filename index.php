@@ -37,6 +37,10 @@ try {
                 (new \blog\controllers\SiteMap())->execute();
                 break;
 
+            case 'mot_de_passe_oublie':
+                (new \blog\controllers\MdpOublie())->execute();
+                break;
+
             default:
                 throw new Exception("La page que vous recherchez n'existe pas.");
         }

@@ -23,7 +23,7 @@ class SiteMap {
                     <li><a href="index.php?action=homepage" class="sitemap-link">Accueil</a></li>
                     <li><a href="index.php?action=inscription" class="sitemap-link">Inscription</a></li>
                     <li><a href="index.php?action=connexion" class="sitemap-link">Authentification</a></li>
-                    <li><a href="index.php?action=?" class="sitemap-link">Mot de passe oublié</a></li>
+                    <li><a href="index.php?action=mot_de_passe_oublie" class="sitemap-link">Mot de passe oublié</a></li>
                     <li><a href="index.php?action=legalnotice" class="sitemap-link">Mentions Légales</a></li>
                     <li><a href="index.php?action=sitemap" class="sitemap-link">Plan du site</a></li>
                 </ul>
