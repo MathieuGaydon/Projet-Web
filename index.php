@@ -31,13 +31,25 @@ try {
             case 'profil':
                 (new \blog\controllers\Profile($pdo))->execute();
                 break;
-            
+
             case 'legalnotice':
                 (new \blog\controllers\LegalNotice())->execute();
                 break;
 
             case 'sitemap':
                 (new \blog\controllers\SiteMap())->execute();
+                break;
+
+            case 'mot_de_passe_oublie':
+                (new \blog\controllers\ForgotPassword($pdo))->execute();
+                break;
+
+            case 'verification_token':
+                (new \blog\controllers\VerifyToken($pdo))->execute();
+                break;
+
+            case 'reinitialisation_mdp':
+                (new \blog\controllers\ResetPassword($pdo))->execute();
                 break;
 
             default:
