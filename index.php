@@ -40,6 +40,14 @@ try {
             case 'mot_de_passe_oublie':
                 (new \blog\controllers\MdpOublie())->execute();
                 break;
+                
+            case 'reset':
+                (new \blog\controllers\Reset())->execute();
+                break;
+
+            case 'reset-psw':
+                (new \blog\controllers\ResetPsw()) -> execute();
+                break;
 
             default:
                 throw new Exception("La page que vous recherchez n'existe pas.");
