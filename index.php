@@ -28,6 +28,10 @@ try {
                 (new \blog\controllers\Login($pdo))->execute();
                 break;
 
+            case 'profil':
+                $pdo = \includes\exceptions\Database::getInstance();
+                (new \blog\controllers\Profile($pdo))->execute();
+            
             case 'legalnotice':
                 (new \blog\controllers\LegalNotice())->execute();
                 break;

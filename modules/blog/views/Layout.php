@@ -24,7 +24,7 @@ class Layout {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <meta name="description" content=<?=($this->description)?>>
+                <meta name="description" content="<?=($this->description)?>">
                 <title><?= htmlspecialchars($this->title) ?></title>
                 <link rel="stylesheet" href="../../_assets/styles/style.css">
                 <link rel="stylesheet" href="../../_assets/styles/register.css">
@@ -52,6 +52,7 @@ class Layout {
                                 <a href="index.php?action=<?= htmlspecialchars($this->info_button_1 ?? '')?>" class="inside"><?=($this->button_1)?></a>
                                 <a href="index.php?action=<?= htmlspecialchars($this->info_button_2 ?? '')?>" class="inside"><?=($this->button_2)?></a>
                             <?php else : ?>
+                                <a href="index.php?action=profil" class="inside">Mon Profil</a>
                                 <a href="index.php?action=deconnexion" class="inside"><?=($this->button_3)?></a>
                             <?php endif; ?>
                     </div>

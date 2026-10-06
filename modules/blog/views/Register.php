@@ -61,7 +61,7 @@ class Register{
                 </div>
             </form>
             </div>
-            <!-- en utilisant 'required', les conditions -->
+            <!-- en utilisant 'required', les conditions du controller sont en quelque sortes "ignorées"-->
             <?php
             $content = ob_get_clean();
         (new Layout($title, $description, $sm_title, $sm_description, $sm_image, $sm_url, $info_button_1, $button_1, $info_button_2, $button_2, $content, $button_3))->show();
