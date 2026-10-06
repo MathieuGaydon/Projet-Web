@@ -44,7 +44,7 @@ class Profile {
             } elseif (!$userModel->verifyPassword($userId, $password)) {
                 $errors[] = 'Mot de passe est incorrect';
             } else {
-                // si mot de passe correct alros supprime le compte
+                // si mot de passe correct alors supprime le compte
                 if ($userModel->delete($userId)) {
                     session_destroy();
                     header('Location: index.php?action=inscription&message=deleted');
