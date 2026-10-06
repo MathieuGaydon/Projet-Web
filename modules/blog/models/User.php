@@ -78,4 +78,13 @@ class User {
 
         return $stmt->execute(['id' => $id]);
     }
+
+    public function updatePassword(int $id_user, string $password): bool {
+        $stmt = $this->db->prepare('UPDATE User SET password = :password, updated_at = NOW() WHERE id_user = :id_user'
+        );
+        return $stmt->execute([
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'id_user' => $id_user
+        ]);
+    }
 }
