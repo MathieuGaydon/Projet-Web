@@ -85,3 +85,20 @@
     background: #FFEFB3;
     color: #013E37;
 }
+
+.sources {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sources a {
+    color:#FFEFB3;
+    text-decoration: none;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.sources a:hover {
+    text-decoration: underline;
+}

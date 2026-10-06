@@ -130,6 +130,13 @@ class Homepage {
                 </div>
             </nav>
         </div>
+        <h2>Sources</h2>
+        <div class="sources">
+            <a href="https://pdh.cnrs.fr/fr/map/">PFAS Data Hub</a>
+            <a href="https://peercommunityjournal.org/item/10.24072/pcjournal.750.pdf">Article de recherche sur les PFAS (Anglais)</a>
+            <a href="https://zenodo.org/records/17761605">Complément Article (Anglais)</a>
+        </div>
+
         <?php
         $content = ob_get_clean();
 
