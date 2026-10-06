@@ -64,7 +64,7 @@ class Layout {
 
                 <footer>
                     <div class="footer-description">
-                        <h4>PFAS-EXPLORER</h4>
+                        <h3 class="title-footer">PFAS-EXPLORER</h3>
                         <p>PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations aux PFAS et de gérer des espaces de travail et des données environnementales.</p>
                     </div>
                     <div class="footer-hyperlinks">
