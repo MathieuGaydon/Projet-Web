@@ -2,12 +2,11 @@
 namespace blog\models;
 
 use PDO;
-use function DDTrace\consume_distributed_tracing_headers;
 
 class User {
     private PDO $db;
 
-    public function __construct(PDo $pdo) {
+    public function __construct(PDO $pdo) {
         $this->db = $pdo;
     }
 

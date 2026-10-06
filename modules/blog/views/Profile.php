@@ -32,22 +32,22 @@ class Profile {
 
             <section class="profile-info">
                 <h3>Informations personnelles</h3>
-                <p>Nom :<?= htmlspecialchars($user->last_name); ?></p>
-                <p>Prénom :<?= htmlspecialchars($user->first_name); ?></p>
-                <p>E-mail :<?= htmlspecialchars($user->email); ?></p>
-                <p>Téléphone :<?= htmlspecialchars($user->phone_number); ?></p>
+                <p>Nom :<?= ' ' . htmlspecialchars($user->last_name); ?></p>
+                <p>Prénom :<?= ' ' . htmlspecialchars($user->first_name); ?></p>
+                <p>E-mail :<?= ' ' . htmlspecialchars($user->email); ?></p>
+                <p>Téléphone :<?= ' ' . htmlspecialchars($user->phone_number); ?></p>
                 <?php if (!empty($user->created_at)): ?>
-                    <p><strong>Membre depuis le :</strong> <?= date('d/m/Y', strtotime($user->created_at)); ?></p>
+                    <p>Membre depuis le :<?= date('d/m/Y', strtotime($user->created_at)); ?></p>
                 <?php endif; ?>
             </section>
 
             <section class="delete-info">
-                <h3>Zone dangereuse : Supprimer mon compte</h3>
+                <h3>Supprimer mon compte</h3>
                 <p>Attention, cette action est irréversible. Toutes vos données seront définitivement supprimées.</p>
 
                 <form action="" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');">
                     <div>
-                        <label for="password">Confirmez votre mot de passe :</label>
+                        <label for="password">Saisir votre mot de passe pour poursuivre :</label>
                         <input type="password" name="password" id="password" required>
                     </div>
                     <br>
