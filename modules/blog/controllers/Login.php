@@ -47,7 +47,12 @@ public function execute(): void {
                 'last_name' => $user-> last_name,
                 'email' => $user-> email,
                 ];
+
+                $_SESSION['user_id'] = (int) $user->id_user;
+
                 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+
                 header('Location: index.php?action=homepage');
                 exit();
             }

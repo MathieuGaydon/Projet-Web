@@ -2,6 +2,7 @@
 namespace blog\models;
 
 use PDO;
+use function DDTrace\consume_distributed_tracing_headers;
 
 class User {
     private PDO $db;
@@ -46,5 +47,36 @@ class User {
         $stmt-> execute(['email' => $email]);
         $user = $stmt->fetch();
         return $user ?: null;
+    }
+
+    // gestion profil utlisateur
+    // récupère les informations
+    public function findById(int $id): ?object {
+        $sql = 'SELECT id_user, first_name, last_name, email, phone_number, created_at FROM User WHERE id_user = :id';
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $user = $stmt->fetch();
+
+        return $user ?: null;
+    }
+
+    // gestion profil utlisateur
+    // vérifie le mot de passe
+    public function verifyPassword(int $id, string $password): bool {
+        $sql = 'SELECT password FROM User WHERE id_user = :id';
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $user = $stmt->fetch();
+
+        return $user && password_verify($password, $user->password);
+    }
+
+    // gestion profil utlisateur
+    // supprime le compte
+    public function delete(int $id): bool {
+        $sql = 'DELETE FROM User WHERE id_user = :id';
+        $stmt = $this->db->prepare($sql);
+
+        return $stmt->execute(['id' => $id]);
     }
 }

@@ -29,6 +29,11 @@ try {
                 (new \blog\controllers\Login($pdo))->execute();
                 break;
 
+            case 'profil':
+                $pdo = \includes\exceptions\Database::getInstance();
+                (new \blog\controllers\Profile($pdo))->execute();
+                break;
+
             default:
                 throw new Exception("La page que vous recherchez n'existe pas.");
         }

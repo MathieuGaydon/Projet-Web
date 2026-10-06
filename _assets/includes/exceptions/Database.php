@@ -26,7 +26,9 @@ class Database {
                     ]
                 );
             } catch (PDOException $e) {
-                die('Erreur de connexion BDD : ' . $e->getMessage());
+                // die('Erreur de connexion BDD : ' . $e->getMessage());
+                error_log('Erreur BDD : ' . $e->getMessage());
+                throw new \Exception('Connexion à la base de données temporairement indisponible.');
             }
         }
         return self::$instance;
