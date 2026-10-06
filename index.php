@@ -29,6 +29,14 @@ try {
                 (new \blog\controllers\Login($pdo))->execute();
                 break;
 
+            case 'legalnotice':
+                (new \blog\controllers\LegalNotice())->execute();
+                break;
+
+            case 'sitemap':
+                (new \blog\controllers\SiteMap())->execute();
+                break;
+
             default:
                 throw new Exception("La page que vous recherchez n'existe pas.");
         }
