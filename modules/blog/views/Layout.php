@@ -31,6 +31,7 @@ class Layout {
                 <link rel="stylesheet" href="../../_assets/styles/login.css">
                 <link rel="stylesheet" href="../../_assets/styles/legalnotice.css">
                 <link rel="stylesheet" href="../../_assets/styles/sitemap.css">
+                <link rel="stylesheet" href="../../_assets/styles/homepage.css">
                 <!--meta pour l'affichage réseaux sociaux-->
                 <meta property="og:title" content="<?= htmlspecialchars($this->sm_title ?? '')?>">
                 <meta property="og:description" content="<?= htmlspecialchars($this->sm_description ?? '')?>">
