@@ -81,8 +81,10 @@ h2 {
     line-height: 1.4;
 }
 
-h4 {
+h3.title-footer {
     font-size: 22px;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
 }
 
 /* --- Blocs Contenu --- */
