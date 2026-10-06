@@ -1,0 +1,87 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+}
+
+.table-container caption {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.table-container td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255, 239, 179, 0.15);
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons_pagination a,
+.buttons_pagination span {
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 0 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #FFEFB3;
+}
+
+.buttons_pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.buttons_pagination a:hover {
+    background: #FFEFB3;
+    color: #013E37;
+}
+
+.buttons_pagination .current {
+    background: #FFEFB3;
+    color: #013E37;
+    border-color: #FFEFB3;
+    font-weight: bold;
+}
+
+.choose_page input[type="number"] {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.choose_page input[type="submit"] {
+    background: #013E37;
+    color: #FFEFB3;
+    border: 1px solid #ccc;
+    font-weight: bold;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.choose_page input[type="submit"]:hover {
+    background: #FFEFB3;
+    color: #013E37;
+}

@@ -4,13 +4,14 @@ require_once __DIR__ . '/_assets/includes/exceptions/Autoloader.php';
 require_once __DIR__ . '/_assets/config/env.php';
 
 try {
+    $pdo = \includes\exceptions\Database::getInstance();
     // Vérifie la présence du paramètre "action" dans l'URL
     if (filter_input(INPUT_GET, 'action')) {
         $action = $_GET['action'];
 
         switch ($action) {
             case 'homepage':
-                (new \blog\controllers\Homepage())->execute();
+                (new \blog\controllers\Homepage($pdo))->execute();
                 break;
 
             case 'deconnexion':
@@ -20,18 +21,23 @@ try {
                 exit();
 
             case 'inscription':
-                $pdo = \includes\exceptions\Database::getInstance();
                 (new \blog\controllers\Register($pdo))->execute();
                 break;
 
             case 'connexion':
-                $pdo = \includes\exceptions\Database::getInstance();
                 (new \blog\controllers\Login($pdo))->execute();
                 break;
 
             case 'profil':
                 $pdo = \includes\exceptions\Database::getInstance();
                 (new \blog\controllers\Profile($pdo))->execute();
+            
+            case 'legalnotice':
+                (new \blog\controllers\LegalNotice())->execute();
+                break;
+
+            case 'sitemap':
+                (new \blog\controllers\SiteMap())->execute();
                 break;
 
             default:
@@ -40,7 +46,7 @@ try {
 
     } else {
         // Redirection vers la page d'accueil par défaut
-        (new \blog\controllers\Homepage())->execute();
+        (new \blog\controllers\Homepage($pdo))->execute();
     }
 } catch (Exception $e) {
     $content = "<section class='error'><h1>Erreur</h1><p>" . htmlspecialchars($e->getMessage()) . "</p></section>";
