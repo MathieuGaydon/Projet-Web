@@ -3,7 +3,7 @@ namespace blog\views;
 
 class Login {
     public function show(array $errors = [], string $email = '', string $csrf_token = ''): void{
-        $title = "PFAS-Explorer - Inscription";
+        $title = "PFAS-Explorer - Connexion";
             $description = "Connectez-vous à votre PFAS-Explorer.";
             $sm_title = "PFAS-Explorer - Connexion";
             $sm_description = "Connectez-vous à votre PFAS-Explorer.";

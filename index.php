@@ -29,8 +29,8 @@ try {
                 break;
 
             case 'profil':
-                $pdo = \includes\exceptions\Database::getInstance();
                 (new \blog\controllers\Profile($pdo))->execute();
+                break;
             
             case 'legalnotice':
                 (new \blog\controllers\LegalNotice())->execute();

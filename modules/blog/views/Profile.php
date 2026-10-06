@@ -32,12 +32,12 @@ class Profile {
 
             <section class="profile-info">
                 <h3>Informations personnelles</h3>
-                <p>Nom :<?= htmlspecialchars($user->last_name); ?></p>
-                <p>Prénom :<?= htmlspecialchars($user->first_name); ?></p>
-                <p>E-mail :<?= htmlspecialchars($user->email); ?></p>
-                <p>Téléphone :<?= htmlspecialchars($user->phone_number); ?></p>
+                <p>Nom : <?= ' ' . htmlspecialchars($user->last_name); ?></p>
+                <p>Prénom :<?= ' ' . htmlspecialchars($user->first_name); ?></p>
+                <p>E-mail :<?= ' ' . htmlspecialchars($user->email); ?></p>
+                <p>Téléphone :<?= ' ' . htmlspecialchars($user->phone_number); ?></p>
                 <?php if (!empty($user->created_at)): ?>
-                    <p><strong>Membre depuis le :</strong> <?= date('d/m/Y', strtotime($user->created_at)); ?></p>
+                    <p>Membre depuis le :<?= date('d/m/Y', strtotime($user->created_at)); ?></p>
                 <?php endif; ?>
             </section>
 
