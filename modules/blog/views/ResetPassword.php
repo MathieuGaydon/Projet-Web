@@ -7,8 +7,8 @@ class ResetPassword {
         $description = "Choisissez un nouveau mot de passe pour votre compte PFAS-Explorer.";
         $sm_title = "PFAS-Explorer - Nouveau mot de passe";
         $sm_description = "Choisissez un nouveau mot de passe pour votre compte PFAS-Explorer.";
-        $sm_image = "https://projetwebtestperso.alwaysdata.net/_assets/images/Logo_PFAS.webp";
-        $sm_url = "https://projetwebtestperso.alwaysdata.net/index.php?action=reinitialisation_mdp";
+        $sm_image = "https://pfas-explorer.alwaysdata.net/_assets/images/Logo_PFAS.webp";
+        $sm_url = "https://pfas-explorer.alwaysdata.net/index.php?action=mot_de_passe_oublie";
         $info_button_1 = "homepage";
         $button_1 = "Accueil";
         $info_button_2 = "connexion";
