@@ -42,7 +42,7 @@ class Profile {
             if (empty($password)) {
                 $errors[] = 'Veuillez entrer votre mot de passe pour poursuivre votre action';
             } elseif (!$userModel->verifyPassword($userId, $password)) {
-                $errors[] = 'Mot de passe est incorrect';
+                $errors[] = 'Le mot de passe saisi est incorrect';
             } else {
                 // si mot de passe correct alros supprime le compte
                 if ($userModel->delete($userId)) {

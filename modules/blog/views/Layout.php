@@ -32,11 +32,12 @@ class Layout {
                 <link rel="stylesheet" href="../../_assets/styles/legalnotice.css">
                 <link rel="stylesheet" href="../../_assets/styles/sitemap.css">
                 <link rel="stylesheet" href="../../_assets/styles/homepage.css">
+                <link rel="stylesheet" href="../../_assets/styles/profile.css">
                 <!--meta pour l'affichage réseaux sociaux-->
-                <meta property="og:title" content="<?= htmlspecialchars($this->sm_title ?? '')?>">
-                <meta property="og:description" content="<?= htmlspecialchars($this->sm_description ?? '')?>">
-                <meta property="og:image" content="<?= htmlspecialchars($this->sm_image ?? '')?>">
-                <meta property="og:url" content="<?= htmlspecialchars($this->sm_url ?? '')?>">
+                <meta property="og:title" content="<?= htmlspecialchars($this->sm_title)?>">
+                <meta property="og:description" content="<?= htmlspecialchars($this->sm_description)?>">
+                <meta property="og:image" content="<?= htmlspecialchars($this->sm_image)?>">
+                <meta property="og:url" content="<?= htmlspecialchars($this->sm_url)?>">
                 <link rel="icon" href="../../favicon.ico" type="image/ico">
                 <!--Import Font Inter, Noto Serif & Quicksand-->
                 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,8 +50,8 @@ class Layout {
                     <!--Menu-->
                     <div id="buttonnav">
                             <?php if (!isset($_SESSION['user'])) : ?>
-                                <a href="index.php?action=<?= htmlspecialchars($this->info_button_1 ?? '')?>" class="inside"><?=($this->button_1)?></a>
-                                <a href="index.php?action=<?= htmlspecialchars($this->info_button_2 ?? '')?>" class="inside"><?=($this->button_2)?></a>
+                                <a href="index.php?action=<?= htmlspecialchars($this->info_button_1)?>" class="inside"><?=($this->button_1)?></a>
+                                <a href="index.php?action=<?= htmlspecialchars($this->info_button_2)?>" class="inside"><?=($this->button_2)?></a>
                             <?php else : ?>
                                 <a href="index.php?action=profil" class="inside">Mon Profil</a>
                                 <a href="index.php?action=deconnexion" class="inside"><?=($this->button_3)?></a>

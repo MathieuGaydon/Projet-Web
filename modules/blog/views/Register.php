@@ -2,13 +2,16 @@
 namespace blog\views;
 
 class Register{
+    /**
+     * @param array<string> $errors
+     */
     public function show(array $errors = []): void {
             $title = "PFAS-Explorer - Inscription";
             $description = "Inscrivez-vous dès maintenant sur le site PFAS-Explorer.";
             $sm_title = "PFAS-Explorer - Inscription";
             $sm_description = "Inscrivez-vous dès maintenant sur le site PFAS-Explorer.";
-            $sm_image = "https://projetwebtestperso.alwaysdata.net/_assets/images/Logo_PFAS.webp";
-            $sm_url = "https://projetwebtestperso.alwaysdata.net/index.php?action=inscription";
+            $sm_image = "https://pfas-explorer.alwaysdata.net/_assets/images/Logo_PFAS.webp";
+            $sm_url = "https://pfas-explorer.alwaysdata.net/index.php?action=inscription";
             $info_button_1 = "homepage";
             $button_1 = "Accueil";
             $info_button_2 = "connexion";
@@ -27,7 +30,7 @@ class Register{
             <?php endif; ?>
             <div class="register">
             <h2>Inscription</h2>
-            <form action="" method="post">
+            <form method="post">
                 <div>
                     <label for="last_name">Nom :</label>
                     <input type="text" name="last_name" id="last_name" placeholder="Dupont" required>

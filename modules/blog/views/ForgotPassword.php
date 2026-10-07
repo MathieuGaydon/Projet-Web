@@ -14,7 +14,6 @@ class ForgotPassword {
         $info_button_2 = "connexion";
         $button_2 = "Se Connecter";
         $button_3 = "Se Déconnecter";
-        $extra_css = "login";
         ob_start();
         ?>
         <h2>Mot de passe oublié</h2>
@@ -35,7 +34,7 @@ class ForgotPassword {
                 Saississez l'adresse email de votre compte. Nous vous enverrons un code de vérification.</p>
             <div>
                 <label for="email">E-mail :</label>
-                <input type="email" name="email" placeholder="mail@exemple.com" value="<?= htmlspecialchars($email) ?>" required>
+                <input type="email" id="email" name="email" placeholder="mail@exemple.com" value="<?= htmlspecialchars($email) ?>" required>
             </div>
             <div>
                 <input type="submit" value="Envoyer le code">
@@ -43,6 +42,6 @@ class ForgotPassword {
         </form>
         <?php
         $content = ob_get_clean();
-        (new Layout($title, $description, $sm_title, $sm_description, $sm_image, $sm_url, $info_button_1, $button_1, $info_button_2, $button_2, $content, $button_3, $extra_css))->show();
+        (new Layout($title, $description, $sm_title, $sm_description, $sm_image, $sm_url, $info_button_1, $button_1, $info_button_2, $button_2, $content, $button_3))->show();
     }
 }
