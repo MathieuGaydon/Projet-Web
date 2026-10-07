@@ -2,13 +2,16 @@
 namespace blog\views;
 
 class Profile {
+    /**
+     * @param array<string> $errors
+     */
     public function show(object $user, array $errors = []): void {
         $title = "PFAS-Explorer - Mon Profil";
         $description = "Consultez vos informations personnelles et gérez votre compte sur PFAS-Explorer.";
         $sm_title = "PFAS-Explorer - Mon Profil";
         $sm_description = "Consultez vos informations personnelles et gérez votre compte sur PFAS-Explorer.";
-        $sm_image = "https://projetwebtestperso.alwaysdata.net/_assets/images/Logo_PFAS.webp";
-        $sm_url = "https://projetwebtestperso.alwaysdata.net/index.php?action=profil";
+        $sm_image = "https://pfas-explorer.alwaysdata.net/_assets/images/Logo_PFAS.webp";
+        $sm_url = "https://pfas-explorer.alwaysdata.net/index.php?action=profil";
         $info_button_1 = "homepage";
         $button_1 = "Accueil";
         $info_button_2 = "deconnexion";
@@ -18,7 +21,7 @@ class Profile {
         ob_start();
         ?>
         <?php if (!empty($errors)): ?>
-            <div>
+            <div class="error">
                 <ul>
                     <?php foreach ($errors as $error): ?>
                         <li><?= htmlspecialchars($error); ?></li>
@@ -32,20 +35,24 @@ class Profile {
 
             <section class="profile-info">
                 <h3>Informations personnelles</h3>
-                <p>Nom : <?= ' ' . htmlspecialchars($user->last_name); ?></p>
-                <p>Prénom :<?= ' ' . htmlspecialchars($user->first_name); ?></p>
-                <p>E-mail :<?= ' ' . htmlspecialchars($user->email); ?></p>
-                <p>Téléphone :<?= ' ' . htmlspecialchars($user->phone_number); ?></p>
+                <p>Nom : <?= htmlspecialchars(isset($user->last_name) && is_string($user->last_name) ? $user->last_name : ''); ?></p>
+                <p>Prénom : <?= htmlspecialchars(isset($user->first_name) && is_string($user->first_name) ? $user->first_name : ''); ?></p>
+                <p>E-mail : <?= htmlspecialchars(isset($user->email) && is_string($user->email) ? $user->email : ''); ?></p>
+                <p>Téléphone : <?= htmlspecialchars(isset($user->phone_number) && is_string($user->phone_number) ? $user->phone_number : '');; ?></p>
+                <?php
+                    $timestamp = strtotime(isset($user->created_at) && is_string($user->created_at) ? $user->created_at : '');
+                    $formattedDate = ($timestamp !== false) ? date('d/m/Y', $timestamp) : '-';
+                ?>
                 <?php if (!empty($user->created_at)): ?>
-                    <p>Membre depuis le :<?= date('d/m/Y', strtotime($user->created_at)); ?></p>
+                    <p><strong>Membre depuis le :</strong> <?= $formattedDate; ?></p>
                 <?php endif; ?>
             </section>
 
             <section class="delete-info">
-                <h3>Zone dangereuse : Supprimer mon compte</h3>
+                <h3>Supprimer mon compte</h3>
                 <p>Attention, cette action est irréversible. Toutes vos données seront définitivement supprimées.</p>
 
-                <form action="" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');">
+                <form method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');">
                     <div>
                         <label for="password">Confirmez votre mot de passe :</label>
                         <input type="password" name="password" id="password" required>

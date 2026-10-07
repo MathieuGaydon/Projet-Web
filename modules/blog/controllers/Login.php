@@ -25,8 +25,8 @@ public function execute(): void {
     $errors = [];
     $email = '';
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = trim($_POST['email'] ?? '');
+        if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = trim(isset($_POST['email']) && is_string($_POST['email']) ? $_POST['email'] : '');
             $password = $_POST['password'] ?? '';
             $csrf = $_POST['csrf_token'] ?? '';
             $userModel = new User($this->pdo);

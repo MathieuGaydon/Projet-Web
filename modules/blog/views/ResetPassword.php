@@ -14,7 +14,6 @@ class ResetPassword {
         $info_button_2 = "connexion";
         $button_2 = "Se Connecter";
         $button_3 = "Se Déconnecter";
-        $extra_css = "login";
         ob_start();
         ?>
         <h2>Nouveau mot de passe</h2>
@@ -45,6 +44,6 @@ class ResetPassword {
         </form>
         <?php
         $content = ob_get_clean();
-        (new Layout($title, $description, $sm_title, $sm_description, $sm_image, $sm_url, $info_button_1, $button_1, $info_button_2, $button_2, $content, $button_3, $extra_css))->show();
+        (new Layout($title, $description, $sm_title, $sm_description, $sm_image, $sm_url, $info_button_1, $button_1, $info_button_2, $button_2, $content, $button_3))->show();
     }
 }

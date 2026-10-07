@@ -10,13 +10,20 @@ class Homepage {
         $this->pdo = $pdo;
     }
 
+    public function cell(mixed $value): string {
+        if($value == null || $value == '' || !is_scalar($value)) {
+            return '-';
+        }
+        return htmlspecialchars((string) $value);
+    }
+
     public function show(): void {
         $title = "PFAS-Explorer - Accueil";
         $description = "PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations aux PFAS et de gérer des espaces de travail et des données environnementales.";
         $sm_title = "PFAS-Explorer - Accueil";
         $sm_description = "PFAS-Explorer est une application web cartographique permettant d'explorer les contaminations aux PFAS et de gérer des espaces de travail et des données environnementales.";
-        $sm_image = "https://projetwebtestperso.alwaysdata.net/_assets/images/Logo_PFAS.webp";
-        $sm_url = "https://projetwebtestperso.alwaysdata.net/";
+        $sm_image = "https://pfas-explorer.alwaysdata.net/_assets/images/Logo_PFAS.webp";
+        $sm_url = "https://pfas-explorer.alwaysdata.net/";
         $info_button_1 = "inscription";
         $button_1 = "S'inscrire";
         $info_button_2 = "connexion";
@@ -24,14 +31,22 @@ class Homepage {
         $button_3 = "Se Déconnecter";
 
         // -Pagination-
+        $totalDatas=0;
         $dataPerPage = 25;
-        $sql = "SELECT COUNT(*) AS total FROM PFAS_Data";
-        $stmt = $this->pdo->query($sql);
-        $totalDatas=$stmt->fetch(PDO::FETCH_ASSOC)['total'];
-        $totalPages=ceil($totalDatas / $dataPerPage);
+        $stmt = $this->pdo->query("SELECT COUNT(*) AS total FROM PFAS_Data");
 
+        if($stmt !== false){
+            $total = $stmt->fetchColumn();
+            if (is_numeric($total)){
+                $totalDatas = (int) $total;
+            }
+        }
+
+        $totalPages=ceil($totalDatas / $dataPerPage);
+        
         // Gestion des pages inférieures à 1 et supérieures au max
-        $actualPage = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+        $pageParam = $_GET['page'] ?? null;
+        $actualPage = is_numeric($pageParam) ? (int) $pageParam : 1;
         if ($actualPage < 1) $actualPage = 1;
         if ($actualPage > $totalPages && $totalPages > 0) $actualPage = $totalPages;
 
@@ -67,15 +82,16 @@ class Homepage {
                 <tbody>
                     <?php if (!empty($data)): ?>
                         <?php foreach ($data as $row): ?>
-                            <tr>
-                                <td><?= htmlspecialchars(!empty($row['name']) ? $row['name'] : '-')?></td>
-                                <td><?= htmlspecialchars(!empty($row['category']) ? $row['category'] : '-')?></td>
-                                <td><?= htmlspecialchars(!empty($row['city']) ? $row['city'] : '-')?></td>
-                                <td><?= htmlspecialchars(!empty($row['country']) ? $row['country'] : '-')?></td>
-                                <td><?= htmlspecialchars(!empty($row['matrix']) ? $row['matrix'] : '-')?></td>
-                                <td><?= htmlspecialchars(isset($row['pfas_sum'])) && $row['pfas_sum'] !== '' ? $row['pfas_sum'] : '-'?></td>
-                                <td><?= htmlspecialchars(!empty($row['year']) ? $row['year'] : '-')?></td>
-                            </tr>
+                            <?php if (!is_array($row)) continue; ?>
+                                <tr>
+                                    <td><?= $this->cell($row['name'] ?? null) ?></td>
+                                    <td><?= $this->cell($row['category'] ?? null) ?></td>
+                                    <td><?= $this->cell($row['city'] ?? null) ?></td>
+                                    <td><?= $this->cell($row['country'] ?? null) ?></td>
+                                    <td><?= $this->cell($row['matrix'] ?? null) ?></td>
+                                    <td><?= $this->cell($row['pfas_sum'] ?? null) ?></td>
+                                    <td><?= $this->cell($row['year'] ?? null) ?></td>
+                                </tr>
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
@@ -113,7 +129,7 @@ class Homepage {
                 <?php endif; ?>
                 <div class="form">
                     <form action="index.php" method="GET" class="choose_page">
-                        <?php if (isset($_GET['action'])): ?>
+                        <?php if (is_string($_GET['action'] ?? null)): ?>
                             <input type="hidden" name="action" value="<?= htmlspecialchars($_GET['action']) ?>">
                         <?php endif; ?>
                         <label for="page-input">Aller à la page :</label>
@@ -133,8 +149,7 @@ class Homepage {
         <h2>Sources</h2>
         <div class="sources">
             <a href="https://pdh.cnrs.fr/fr/map/">PFAS Data Hub</a>
-            <a href="https://peercommunityjournal.org/item/10.24072/pcjournal.750.pdf">Article de recherche sur les PFAS (Anglais)</a>
-            <a href="https://zenodo.org/records/17761605">Complément Article (Anglais)</a>
+            <a href="https://zenodo.org/records/17761605">Article de recherche sur les PFAS (Anglais)</a>
         </div>
 
         <?php
