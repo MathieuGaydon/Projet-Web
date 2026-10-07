@@ -7,8 +7,8 @@ class ForgotPassword {
         $description = "Réinitialisez votre mot de passe de votre compte PFAS-Explorer.";
         $sm_title = "PFAS-Explorer - Mot de passe oublié";
         $sm_description = "Réinitialisez votre mot de passe de votre compte PFAS-Explorer.";
-        $sm_image = "https://projetwebtestperso.alwaysdata.net/_assets/images/Logo_PFAS.webp";
-        $sm_url = "https://projetwebtestperso.alwaysdata.net/index.php?action=mot_de_passe_oublie";
+        $sm_image = "https://pfas-explorer.alwaysdata.net/_assets/images/Logo_PFAS.webp";
+        $sm_url = "https://pfas-explorer.alwaysdata.net/index.php?action=mot_de_passe_oublie";
         $info_button_1 = "homepage";
         $button_1 = "Accueil";
         $info_button_2 = "connexion";
