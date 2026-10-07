@@ -49,7 +49,7 @@ class Profile {
             </section>
 
             <section class="delete-info">
-                <h3>Zone dangereuse : Supprimer mon compte</h3>
+                <h3>Supprimer mon compte</h3>
                 <p>Attention, cette action est irréversible. Toutes vos données seront définitivement supprimées.</p>
 
                 <form method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer votre compte ?');">
